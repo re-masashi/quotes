@@ -7,7 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron-forge start",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "electron-forge make",
+    "ebl": "electron-builder build -l --x64 -c.electronVersion=23.1.0",
+    "ebw": "electron-builder build -w --x64 -c.electronVersion=23.1.0"
   },
   "author": "",
   "license": "ISC",
@@ -17,9 +19,11 @@
   },
   "devDependencies": {
     "@electron-forge/maker-deb": "^6.0.5",
+    "@electron-forge/maker-snap": "^6.0.5",
     "@electron-forge/maker-squirrel": "^6.0.5",
     "@electron-forge/maker-zip": "^6.0.5",
-    "@electron-forge/maker-snap": "^6.0.5"
+    "electron": "^23.1.0",
+    "electron-builder": "^23.6.0"
   },
   "config": {
     "forge": {
@@ -41,9 +45,9 @@
           ]
         },
         {
-          "name":"@electron-forge/maker-snap",
+          "name": "@electron-forge/maker-snap",
           "config": {
-            "features":{
+            "features": {
               "audio": true,
               "mpris": "com.example.mpris",
               "webgl": true
@@ -51,7 +55,6 @@
             "summary": "k"
           }
         }
-
       ]
     }
   }

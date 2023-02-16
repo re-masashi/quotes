@@ -3,9 +3,9 @@ cache:
   - node_modules
 environment:
   GH_TOKEN:
-      secure: fK836CflhDBugnKO8/6bb/97NGIsR/E8Y3e
+      secure: 0w5ezdOXK4n8qeg3oZ7HZuFOHJvdksLwd9/6YNj3xn3lrYTERRvQPUB7Ytfw3Qh4
   matrix:
-    - nodejs_version: 6
+    - nodejs_version: 7
 install:
   - ps: Install-Product node $env:nodejs_version
   - set CI=true
@@ -20,4 +20,4 @@ version: '{build}'
 shallow_clone: true
 clone_depth: 1
 test_script:
-  - npm run dist
+  - npm run ebw
