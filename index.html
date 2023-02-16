@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quotes</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="App h-screen flex justify-center items-center">
+      <div>
+        <div class="card">
+          <p id="quote_text" class="quote">O, kawaii koto!</p>
+          <div style="padding-top: 1rem; ">
+            <span id="quote_by">by Shinomiya Kaguya from Kaguya-sama: Love is War</span>
+          </div>
+        </div>
+        <button
+          onclick="setQuote()"
+          class="btn_g"
+        >
+          Get Quote
+        </button>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript">
+    function setQuote() {
+      document.getElementById('quote_text').innerHTML = "Loading...";
+      document.getElementById('quote_by').innerHTML = "Please wait.."
+      fetch("https://animechan.vercel.app/api/random")
+        .then((res) => res.json())
+        .then((data)=>{
+          document.getElementById('quote_text').innerHTML = data.quote;
+          document.getElementById('quote_by').innerHTML = "by "+ data.character + " from " + data.anime;
+        });
+    }
+  </script>
+</html>
